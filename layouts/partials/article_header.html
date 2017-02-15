@@ -1,0 +1,7 @@
+{{ partial "site_header.html" . }}
+
+<article>
+   <header>
+        <h1 class="title">{{ .Title }}</h1>
+        <p class="subtitle"><time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</time></p>
+  </header>

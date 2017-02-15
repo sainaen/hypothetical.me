@@ -1,0 +1,16 @@
+{{ partial "site_header.html" . }}
+
+<article>
+    <header>
+        <h1>Posts</h1>
+    </header>
+
+    <ul class="post-list">
+    {{ range where .Data.Pages "Type" "post" }}
+        <li><p class="post-date">{{ .Date.Format "Jan 2, 2006" }}</p><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+</article>
+
+{{ partial "site_footer.html" . }}
+

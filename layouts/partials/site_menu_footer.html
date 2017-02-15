@@ -1,0 +1,14 @@
+</main>
+
+<footer class="site-footer menu-footer">
+    {{ $page := . }}
+    <ul class="menu">
+    {{ range .Site.Menus.bottom }}
+        <li {{ if $page.IsMenuCurrent "bottom" . }} class="active"{{end}}><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+    </ul>
+    {{ partial "copy.html" . }}
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/main.css">
+    <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml">
+</head>
+<body>
+<header class="site-header">
+    <h1 class="title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+{{ $page := . }}
+    <ul class="menu">
+    {{ range .Site.Menus.top }}<li {{ if $page.IsMenuCurrent "top" . }} class="active"{{end}}><a href="{{ .URL }}">{{ .Name }}</a></li>{{ end }}
+    </ul>
+</header>
+<main>

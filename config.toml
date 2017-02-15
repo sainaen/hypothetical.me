@@ -1,0 +1,29 @@
+baseurl = "https://hypothethical.me/"
+title = "Hypothetical Me"
+languageCode = "en"
+
+# pygmentsuseclasses = false # inject color codes instead of just css classes
+# PygmentsCodeFences = true # highlight regular ```code```
+
+buildDrafts = true
+disableSitemap = true
+enableRobotsTXT = true
+
+[menu]
+    [[menu.top]]
+        name = "RSS"
+        url = "/index.xml"
+        identifier = "rss"
+        weight = 100
+
+    [[menu.bottom]]
+        name = "Blog"
+        url = "/"
+        identifier = "index"
+        weight = -100
+
+    [[menu.bottom]]
+        name = "RSS"
+        url = "/index.xml"
+        identifier = "rss"
+        weight = 100

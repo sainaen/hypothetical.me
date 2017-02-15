@@ -1,11 +1,30 @@
 <!doctype html>
-<html lang="{{ .Site.LanguageCode }}">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{{ .Site.LanguageCode }}" xmlns:og="http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/main.css">
-    <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml">
+    <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/main.css" />
+    <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{ .Site.Title }} RSS"/>
+    <!-- S.E.O. (is it really?) -->
+    <link rel="canonical" href="{{ .Permalink }}" />
+    <meta name="title" content="{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}" />
+    <meta name="description" content="{{ $.Param "desc" }}" />
+    <meta name="author" contnet="{{ $.Param "author" }}" />
+    <!-- OpenGraph meta tags -->
+    <meta property="og:title" content="{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:description" content="{{ $.Param "desc" }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    {{ if .IsPage }}
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}" />
+    <meta property="article:author" content="{{ $.Param "author" }}" />
+    {{ end }}
+    <!-- Twitter Card meta tags-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}" />
+    <meta name="twitter:description" content="{{ $.Param "desc" }}" />
 </head>
 <body>
 <header class="site-header">

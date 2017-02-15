@@ -9,6 +9,10 @@ buildDrafts = true
 disableSitemap = true
 enableRobotsTXT = true
 
+[params]
+    desc = "YOLO"
+    author = "Ivan Vyshnevskyi"
+
 [menu]
     [[menu.top]]
         name = "RSS"

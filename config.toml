@@ -9,9 +9,9 @@ buildDrafts = true
 disableSitemap = true
 enableRobotsTXT = true
 
-[params]
-    desc = "YOLO"
-    author = "Ivan Vyshnevskyi"
+[Params]
+    desc = "YOLO2"
+    author = "Ivan&nbsp;Vyshnevskyi"
 
 [menu]
     [[menu.top]]

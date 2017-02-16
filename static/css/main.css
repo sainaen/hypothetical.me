@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-    margin-top: 2.281rem;
+    margin-top: 3.653rem;
     margin-bottom: 0;
     font-size: 2.027rem;
 }
@@ -42,7 +42,7 @@ h2 {
 h3 {
     margin-top: 2.027rem;
     margin-bottom: 0;
-    font-size: 1.802rem;
+    font-size: 1.602rem;
 }
 
 a:link, a:visited {
@@ -62,8 +62,8 @@ p {
 code {
     display: inline-block;
     padding: 0 0.4em;
-    background-color: #FAFAFA;
-    border: 1px solid #E4E4E4;
+    background-color: hsl(0, 0%, 98%);
+    border: 1px solid hsl(0, 0%, 88%);
     border-radius: 2px;
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 1.125rem;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ partial "title.html" . }}</title>
     <link rel="stylesheet" type="text/css" href="{{ "css/main.css" |  absURL }}" />
-    <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | absURL }}" title="“{{ .Site.Title }}” RSS"/>
+    <link rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}" title="“{{ .Site.Title }}” RSS"/>
     <!-- S.E.O. (is it really?) -->
     <link rel="canonical" href="{{ .Permalink }}" />
     <meta name="title" content="{{ partial "title.html" . }}" />

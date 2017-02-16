@@ -1,6 +1,6 @@
 baseurl = "https://hypothetical.me/"
 title = "Hypothetical Me"
-languageCode = "en"
+languageCode = "en_US"
 
 # pygmentsuseclasses = false # inject color codes instead of just css classes
 # PygmentsCodeFences = true # highlight regular ```code```

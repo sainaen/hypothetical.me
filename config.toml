@@ -14,7 +14,7 @@ enableRobotsTXT = true
     email = "ivan@hypothetical.me"
 
 [Params]
-    desc = "YOLO2"
+    desc = "A blog about technology written by hypothetical, smarter version of me."
 
 [menu]
     [[menu.top]]

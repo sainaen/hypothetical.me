@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}</title>
+    <title>{{ partial "title.html" . }}</title>
     <link rel="stylesheet" type="text/css" href="{{ "css/main.css" |  absURL }}" />
     <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | absURL }}" title="“{{ .Site.Title }}” RSS"/>
     <!-- S.E.O. (is it really?) -->

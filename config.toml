@@ -9,9 +9,12 @@ buildDrafts = true
 disableSitemap = true
 enableRobotsTXT = true
 
+[author]
+    name = "Ivan Vyshnevskyi"
+    email = "ivan@hypothetical.me"
+
 [Params]
     desc = "YOLO2"
-    author = "Ivan&nbsp;Vyshnevskyi"
 
 [menu]
     [[menu.top]]

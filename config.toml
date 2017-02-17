@@ -37,3 +37,7 @@ disableHugoGeneratorInject = true
         url = "/index.xml"
         identifier = "rss"
         weight = 100
+
+[permalinks]
+    post = "/post/:slug/"
+    draft = "/draft/:slug/"

@@ -1,5 +1,6 @@
 html {
     font-size: 14px;
+    height: 100%;
 }
 
 body {
@@ -8,6 +9,18 @@ body {
     background-color: #fffffa;
     color: #111;
     margin: 0;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.site-header,
+.site-footer {
+    flex: none;
 }
 
 h1, h2, h3,

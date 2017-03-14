@@ -197,11 +197,6 @@ p.subtitle {
     font-size: 1rem;
 }
 
-.cc-icon {
-    border-width: 0;
-    height: 31px;
-}
-
 @media (min-width: 780px) {
     html {
         font-size: 15px;

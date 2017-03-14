@@ -18,6 +18,7 @@ disableHugoGeneratorInject = true
 
 [Params]
     desc = "A blog about technology written by hypothetical, smarter version of me."
+    github = "https://github.com/sainaen/hypothetical.me"
 
 [menu]
     [[menu.top]]

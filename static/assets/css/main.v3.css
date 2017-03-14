@@ -137,11 +137,11 @@ li {
 
 .site-footer {
     text-align: center;
-    margin-top: 5.202rem;
+    margin-top: 4.11rem;
 }
 
 .site-footer::before {
-    border-top: 1px solid #111;
+    border-top: 2px solid #111;
     display: block;
     width: 90%;
     content: '';
@@ -173,6 +173,10 @@ article header {
     margin-bottom: 2.281rem;
 }
 
+article footer {
+    margin-top: 2.281rem;
+}
+
 p.subtitle {
     font-size: 1.602rem;
     display: block;
@@ -190,6 +194,11 @@ p.subtitle {
     font-size: 1.266rem;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.article-edit {
+    font-size: 1.125rem;
+    font-style: italic;
 }
 
 .copyright {

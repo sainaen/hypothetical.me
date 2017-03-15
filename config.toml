@@ -16,6 +16,7 @@ disableHugoGeneratorInject = true
     name = "Ivan Vyshnevskyi"
     email = "ivan@hypothetical.me"
     profile = "https://vyshnevskyi.com"
+    twitter = "@sainaen"
 
 [Params]
     desc = "A blog about technology written by hypothetical, smarter version of me."

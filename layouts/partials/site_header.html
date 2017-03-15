@@ -35,6 +35,9 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="{{ partial "title.html" . }}" />
     <meta name="twitter:description" content="{{ $.Param "desc" }}" />
+    {{ with .Site.Author.twitter }}
+    <meta name="twitter:creator" content="{{ . }}" />
+    {{ end }}
 </head>
 <body>
 <header class="site-header">

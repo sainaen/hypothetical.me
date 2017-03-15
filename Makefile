@@ -1,4 +1,4 @@
-.PHONY: all clean build run run_pub
+.PHONY: all clean build run run_pub deploy
 
 all: build
 
@@ -17,3 +17,13 @@ run_pub: clean
 		--bind '0.0.0.0' \
 		--baseURL 'hme.lan'
 
+deploy: build
+	rsync -v \
+		--stats \
+		--human-readable \
+		--progress \
+		--delete \
+		--times \
+		--recursive \
+		public/ \
+		sainaen:/var/www/hypothetical.me

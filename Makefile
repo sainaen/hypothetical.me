@@ -23,6 +23,7 @@ deploy: build
 		--human-readable \
 		--progress \
 		--delete \
+		--checksum \
 		--times \
 		--recursive \
 		public/ \

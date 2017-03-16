@@ -19,7 +19,7 @@ disableHugoGeneratorInject = true
     twitter = "@sainaen"
 
 [Params]
-    desc = "A blog about technology written by hypothetical, smarter version of me."
+    desc = "A blog about technology written by hypothetical, better version of me."
     github = "https://github.com/sainaen/hypothetical.me"
 
 [menu]

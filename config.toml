@@ -7,10 +7,11 @@ copyright = "© 2017 “Hypothetical Me” by Ivan Vyshnevskyi is licensed und
 # PygmentsCodeFences = true # highlight regular ```code```
 
 buildDrafts = true
-disableSitemap = true
 enableRobotsTXT = true
 
 disableHugoGeneratorInject = true
+
+disableKinds = [ "sitemap" ]
 
 [author]
     name = "Ivan Vyshnevskyi"

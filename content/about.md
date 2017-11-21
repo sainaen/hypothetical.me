@@ -16,7 +16,7 @@ interesting enough to write down, with occasional non-technical posts.
 It has two primary goals:
 
 * help me learn to communicate better, and
-* work as an external memory&hairsp;---&hairsp;store things I once knew.
+* work as an external memory&#8239;---&thinsp;store things I once knew.
 
 There’s no comments section for now, but you’re welcome to send your feedback
 to [ivan@vyshnevskyi.com](mailto:ivan@vyshnevskyi.com) or

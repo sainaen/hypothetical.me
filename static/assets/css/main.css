@@ -64,6 +64,14 @@ a:link, a:visited {
 
 p, ol, ul {
     font-size: 1.424rem;
+    font-feature-settings: "onum" 1;
+}
+
+@supports (font-variant-numeric: oldstyle-nums) {
+    p, ul, ol {
+        font-feature-settings: normal;
+        font-variant-numeric: oldstyle-nums;
+    }
 }
 
 p {

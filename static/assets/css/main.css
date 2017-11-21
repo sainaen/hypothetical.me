@@ -209,6 +209,10 @@ p.subtitle {
     padding: 0;
 }
 
+.post-list li {
+    margin-left: 0;
+}
+
 .post-list .post-date {
     display: block;
     width: 100%;

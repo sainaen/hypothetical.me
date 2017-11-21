@@ -1,6 +1,6 @@
 baseurl = "https://hypothetical.me/"
 title = "Hypothetical Me"
-languageCode = "en"
+languageCode = "en-GB"
 copyright = "© 2017 “Hypothetical Me” by Ivan Vyshnevskyi is licensed under a CC BY-SA 4.0 International License."
 
 # pygmentsuseclasses = false # inject color codes instead of just css classes

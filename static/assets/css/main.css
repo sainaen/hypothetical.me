@@ -153,6 +153,8 @@ li {
 }
 
 .site-header .title {
+    /* Note, that main font, Palatino, doesn't have
+       a _true_ small caps at least on iOS devices. */
     font-variant: small-caps;
 }
 
@@ -247,7 +249,7 @@ p.subtitle {
     }
     .post-list .post-date {
         display: inline-block;
-        width: 20%;
+        width: 8rem;
         margin: 0;
     }
 }

@@ -241,21 +241,25 @@ p.subtitle {
     font-size: 1rem;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 680px) {
     html {
         font-size: 15px;
-    }
-    h1, h2, h3,
-    p, pre, blockquote,
-    ul, ol {
-        width: 100%;
-        max-width: 740px;
     }
     .post-list .post-date {
         display: inline-block;
         width: 20%;
         margin: 0;
     }
+}
+
+@media (min-width: 780px) {
+    h1, h2, h3,
+    p, pre, blockquote,
+    ul, ol {
+        width: 100%;
+        max-width: 740px;
+    }
+
     .site-footer::before {
         max-width: 830px;
     }

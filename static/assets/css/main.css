@@ -130,7 +130,8 @@ blockquote footer {
     text-align: right;
 }
 
-.edit-me {
+.edit-me,
+.draft {
     background-color: hsl(90, 100%, 80%);
 }
 
@@ -227,10 +228,6 @@ p.subtitle {
     font-style: italic;
     font-size: 0.79em;
     vertical-align: text-top;
-}
-
-.post-list .draft {
-    background-color: hsl(90, 100%, 80%);
 }
 
 .article-edit {

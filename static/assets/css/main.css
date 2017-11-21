@@ -252,6 +252,9 @@ p.subtitle {
 }
 
 @media (min-width: 780px) {
+    html {
+        font-size: 16px;
+    }
     h1, h2, h3,
     p, pre, blockquote,
     ul, ol {

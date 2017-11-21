@@ -5,8 +5,8 @@
         <h1>{{ .Title }}</h1>
     </header>
     <ul class="post-list">
-    {{ range where (where .Data.Pages "Draft" "!=" true) "Type" "post" }}
-        <li><p class="post-date"><time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "Jan 2, 2006" }}</time></p><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ range .Data.Pages }}
+        <li{{ if .Draft }} class="draft"{{ end }}><p class="post-date"><time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "Jan 2, 2006" }}</time></p><a href="{{ .Permalink }}">{{ .Title }}</a></li>
     {{ end }}
     </ul>
 </article>

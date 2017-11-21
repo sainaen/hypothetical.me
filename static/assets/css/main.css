@@ -204,6 +204,16 @@ p.subtitle {
     margin-bottom: 0;
 }
 
+.post-list .badge-short {
+    font-style: italic;
+    font-size: 0.79em;
+    vertical-align: text-top;
+}
+
+.post-list .draft {
+    background-color: hsl(90, 100%, 80%);
+}
+
 .article-edit {
     font-size: 1.125rem;
     font-style: italic;

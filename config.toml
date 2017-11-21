@@ -44,4 +44,4 @@ disableKinds = [ "sitemap" ]
 
 [permalinks]
     post = "/post/:slug/"
-    draft = "/draft/:slug/"
+    short = "/short/:slug/"

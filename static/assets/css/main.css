@@ -64,6 +64,7 @@ a:link, a:visited {
 
 p, ol, ul {
     font-size: 1.424rem;
+    line-height: 2.027rem;
     font-feature-settings: "onum" 1;
 
     -ms-hyphens: auto;
@@ -88,7 +89,6 @@ p, ol, ul {
 }
 
 p {
-    line-height: 2.027rem;
     margin-top: 1.424rem;
     margin-bottom: 1.424rem;
 }

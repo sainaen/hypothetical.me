@@ -56,4 +56,4 @@ I'd say there's still not enough data on this.
 
 [Paper PDF]: https://acmccs.github.io/papers/p295-pearmanA.pdf
 [CCS'17]: https://acmccs.github.io/papers/
-[SBO]: https://www.cylab.cmu.edu/files/pdfs/tech_reports/CMUCyLab14009.pdf
+[SBO]: http://sbo.cs.cmu.edu/

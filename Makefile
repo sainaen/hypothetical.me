@@ -6,13 +6,18 @@ clean:
 	@rm -rf public
 
 build: clean
-	HUGO_MODE=prod hugo -v
+	HUGO_MODE=prod hugo -v --cleanDestinationDir
 
 run: clean
-	hugo serve -v
+	hugo server -v \
+		--buildDrafts \
+		--buildFuture
 
 run_pub: clean
-	sudo ~/.local/bin/hugo serve -v \
+	sudo ~/.local/bin/hugo server -v \
+		--watch \
+		--buildFuture \
+		--buildDrafts \
 		--port 80 \
 		--bind '0.0.0.0' \
 		--baseURL 'hme.lan'

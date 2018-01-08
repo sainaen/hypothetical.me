@@ -19,5 +19,5 @@ It has two primary goals:
 * work as an external memory&#8239;---&thinsp;store things I once knew.
 
 There’s no comments section for now, but you’re welcome to send your feedback
-to [ivan@vyshnevskyi.com](mailto:ivan@vyshnevskyi.com) or
+to [hi@hypothetical.me](mailto:hi@hypothetical.me) or
 tweet at [@sainaen](https://twitter.com/sainaen).

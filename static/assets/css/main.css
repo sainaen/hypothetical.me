@@ -149,6 +149,10 @@ li {
     padding: 0.4em 0;
 }
 
+p strong.lead {
+    font-size: 0.91em;
+}
+
 p.subtitle,
 .menu,
 .post-list {

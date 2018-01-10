@@ -10,8 +10,6 @@ enableRobotsTXT = true
 
 disableHugoGeneratorInject = true
 
-disableKinds = [ "sitemap" ]
-
 [author]
     name = "Ivan Vyshnevskyi"
     email = "ivan@hypothetical.me"

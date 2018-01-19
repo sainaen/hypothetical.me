@@ -149,6 +149,22 @@ li {
     padding: 0.4em 0;
 }
 
+sup {
+    font-feature-settings: "sups" 1;
+}
+@supports (font-variant-position: super) {
+    sup {
+        font-feature-settings: normal;
+        font-variant-position: super;
+    }
+}
+@supports ((font-variant-position: super) or (font-feature-settings: "sups" 1)) {
+    sup {
+        vertical-align: inherit;
+        font-size: inherit;
+    }
+}
+
 p strong.lead {
     font-size: 0.91em;
 }

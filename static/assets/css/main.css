@@ -240,7 +240,7 @@ p.subtitle {
 .post-list .badge-short {
     font-style: italic;
     font-size: 0.79em;
-    vertical-align: text-top;
+    vertical-align: top;
 }
 
 .article-edit {

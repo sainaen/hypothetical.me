@@ -3,7 +3,7 @@ title = "One Line Reverse Shell in Bash"
 slug = "reverse-shell-in-bash"
 date = 2018-01-10T06:41:19Z
 desc = "Figuring out how a Bash one-liner works as a reverse shell."
-tags = ["security", "today-i-learned"]
+tags = ["security", "tools"]
 +++
 
 Yesterday I saw a message from [Bryan Brake] on one of the [BrakeSec Slack] channels:

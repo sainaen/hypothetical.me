@@ -12,10 +12,10 @@
     {{ end }}
     <link rel="stylesheet" type="text/css" href="{{ $.Scratch.Get "css_path" | absURL }}" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}" title="“{{ .Site.Title }}” RSS"/>
     {{ if eq .Kind "taxonomy" }}
     <link rel="alternate" type="application/rss+xml" href="{{ .RSSLink }}" title="“{{ title .Data.Singular }}: {{ .Data.Term }} &ndash; {{ .Site.Title }}” RSS"/>
     {{ end }}
+    <link rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}" title="“{{ .Site.Title }}” RSS"/>
     <!-- S.E.O. (is it really?) -->
     <link rel="canonical" href="{{ .Permalink }}" />
     <meta name="title" content="{{ partial "title.html" . }}" />

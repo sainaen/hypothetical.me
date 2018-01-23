@@ -1,0 +1,15 @@
+{{ partial "site_header.html" . }}
+
+<article>
+    <header>
+        <h1>{{ .Title }}</h1>
+    </header>
+    <ul>
+    {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms.ByCount }}
+        <li>{{ $value.Name }}&thinsp;&mdash;&thinsp;<a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Count }} {{ if eq $value.Count 1 }}post{{ else }}posts{{ end }}</a></li>
+    {{ end }}
+    </ul>
+</article>
+
+{{ partial "site_footer.html" . }}

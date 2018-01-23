@@ -1,0 +1,1 @@
+<li{{ if .Draft }} class="draft"{{ end }}><p class="post-date"><time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "Jan 2, 2006" }}</time></p><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if eq .Type "short" }} <span class="badge-short">short!</span>{{ end }}</li>

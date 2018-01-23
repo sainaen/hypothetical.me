@@ -2,11 +2,12 @@
 
 <article>
     <header>
-        <h1>{{ .Title }}</h1>
+        <h1>All Posts</h1>
     </header>
     <ul class="post-list">
-    {{ range .Data.Pages }}{{ partial "post_list_el.html" . }}{{ end }}
+    {{ range where .Data.Pages "Type" "ne" "doc" }}{{ partial "post_list_el.html" . }}{{ end }}
     </ul>
 </article>
 
 {{ partial "site_footer.html" . }}
+

@@ -42,3 +42,6 @@ disableHugoGeneratorInject = true
 [permalinks]
     post = "/post/:slug/"
     short = "/short/:slug/"
+
+[taxonomies]
+    tag = "tags"

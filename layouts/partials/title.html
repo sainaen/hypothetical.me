@@ -1,1 +1,9 @@
-<!-- have to ommit the new line at the end to avoid trailing space in the result -->{{ .Title }}{{ if not .IsHome }} &ndash; {{ .Site.Title }}{{ end }}
+<!--
+Code belows constructs proper title for a page:
+on homepage: "Site title"
+on a taxonomy page (including RSS): "Taxonomy: term &ndash; Site title"
+any other: "Page title &ndash; Site title"
+
+Note: have to ommit the new line at the end to avoid trailing space in the result
+(this comment is excluded from the generated code.)
+-->{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ if .Data.Term }}{{ title .Data.Singular }}: {{ .Data.Term }} &#x2013; {{ else }}{{ with .Title }}{{.}} &#x2013; {{ end }}{{ end }}{{ .Site.Title }}{{ end }}

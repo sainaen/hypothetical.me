@@ -226,6 +226,24 @@ article footer {
     margin-top: 2em;
 }
 
+article hr {
+    border: 0;
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+article hr::before {
+    display: block;
+    border-top: 1px solid #111;
+    width: 80%;
+    content: '';
+    margin-left: auto;
+    margin-right: auto;
+}
+
 p.subtitle {
     font-size: 1.424em;
     display: block;
@@ -281,6 +299,10 @@ p.subtitle {
     h1, h2, h3,
     p, pre, blockquote,
     ul, ol {
+        width: 100%;
+        max-width: 720px;
+    }
+    article hr {
         width: 100%;
         max-width: 720px;
     }

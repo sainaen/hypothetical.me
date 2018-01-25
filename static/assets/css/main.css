@@ -60,7 +60,7 @@ a:link, a:visited {
 }
 
 p, ol, ul {
-    font-size: 1.125em;
+    font-size: 1.125rem;
     line-height: 1.6;
     font-feature-settings: "onum" 1;
 

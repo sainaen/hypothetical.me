@@ -155,6 +155,15 @@ li {
     padding: 0.4em 0;
 }
 
+li > p:first-child,
+li > pre:first-child {
+    margin-top: 0;
+}
+li > p:last-child,
+li > pre:last-child {
+    margin-bottom: 0;
+}
+
 sup {
     font-feature-settings: "sups" 1;
 }

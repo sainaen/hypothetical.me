@@ -77,11 +77,17 @@ p, ol, ul {
 .pn, abbr {
     hyphens: manual;
 }
+abbr {
+    font-feature-settings: normal;
+}
 
 @supports (font-variant-numeric: oldstyle-nums) {
     p, ul, ol {
         font-feature-settings: normal;
         font-variant-numeric: oldstyle-nums;
+    }
+    abbr {
+        font-variant-numeric: lining-nums;
     }
 }
 

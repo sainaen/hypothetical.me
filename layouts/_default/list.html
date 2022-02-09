@@ -1,12 +1,12 @@
 {{ partial "site_header.html" . }}
-
 <article>
     <header>
         <h1>{{ .Title }}</h1>
     </header>
     <ul class="post-list">
-    {{ range .Data.Pages }}{{ partial "post_list_el.html" . }}{{ end }}
+    {{- range .Data.Pages }}
+        {{ partial "post_list_el.html" . }}
+    {{- end }}
     </ul>
 </article>
-
 {{ partial "site_footer.html" . }}

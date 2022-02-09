@@ -1,14 +1,12 @@
 </main>
-
 <footer class="site-footer menu-footer">
-    {{ $page := . }}
+    {{- $page := . }}
     <ul class="menu">
-    {{ range .Site.Menus.bottom }}
-        <li {{ if $page.IsMenuCurrent "bottom" . }} class="active"{{end}}><a href="{{ .URL }}">{{ .Name }}</a></li>
-    {{ end }}
+    {{- range .Site.Menus.bottom }}
+        <li {{- if $page.IsMenuCurrent "bottom" . }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{- end }}
     </ul>
-    {{ partial "copy.html" . }}
+    {{ partial "copy.html" . -}}
 </footer>
-
 </body>
 </html>

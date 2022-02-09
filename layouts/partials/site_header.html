@@ -6,9 +6,9 @@
     <title>{{ partial "title.html" . }}</title>
     <link rel="stylesheet" type="text/css" href="{{ (resources.Get "css/main.css" | minify | fingerprint).Permalink }}" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    {{ if eq .Kind "taxonomy" }}
-    <link rel="alternate" type="application/rss+xml" href="{{ .RSSLink }}" title="“{{ title .Data.Singular }}: {{ .Data.Term }} &ndash; {{ .Site.Title }}” RSS"/>
-    {{ end }}
+    {{- if eq .Kind "term" }}
+    <link rel="alternate" type="application/rss+xml" href="{{ with .OutputFormats.Get "RSS" }}{{ .Permalink }}{{ end }}" title="“{{ title .Data.Singular }}: {{ .Data.Term }} &ndash; {{ .Site.Title }}” RSS"/>
+    {{- end }}
     <link rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}" title="“{{ .Site.Title }}” RSS"/>
     <link rel="canonical" href="{{ .Permalink }}" />
     <meta name="title" content="{{ partial "title.html" . }}" />

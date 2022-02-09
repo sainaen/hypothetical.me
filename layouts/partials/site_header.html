@@ -4,13 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ partial "title.html" . }}</title>
-    {{ if eq (lower (getenv "HUGO_MODE")) "prod" }}
-        {{ $css_hash := md5 (readFile "static/assets/css/main.css") }}
-        {{ $.Scratch.Add "css_path" (printf "assets/css/main.%s.css" $css_hash) }}
-    {{ else }}
-        {{ $.Scratch.Add "css_path" "assets/css/main.css" }}
-    {{ end }}
-    <link rel="stylesheet" type="text/css" href="{{ $.Scratch.Get "css_path" | absURL }}" />
+    <link rel="stylesheet" type="text/css" href="{{ (resources.Get "css/main.css" | minify | fingerprint).Permalink }}" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     {{ if eq .Kind "taxonomy" }}
     <link rel="alternate" type="application/rss+xml" href="{{ .RSSLink }}" title="“{{ title .Data.Singular }}: {{ .Data.Term }} &ndash; {{ .Site.Title }}” RSS"/>

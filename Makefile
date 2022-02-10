@@ -14,7 +14,7 @@ run: clean
 		--buildFuture
 
 run_pub: clean
-	sudo ~/.local/bin/hugo server -v \
+	sudo $(command -v hugo) server -v \
 		--watch \
 		--buildFuture \
 		--buildDrafts \
@@ -23,13 +23,8 @@ run_pub: clean
 		--baseURL 'hme.lan'
 
 deploy: build
-	rsync -v \
-		--stats \
-		--human-readable \
-		--progress \
-		--delete \
-		--checksum \
-		--times \
-		--recursive \
+	aws s3 sync \
+		--profile static_sites \
+		--size-only \
 		public/ \
-		sainaen:/var/www/hypothetical.me
+		s3://hypothetical.me/

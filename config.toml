@@ -6,7 +6,7 @@ copyright = "© 2022 “Hypothetical Me” by Ivan Vyshnevskyi is licensed und
 # pygmentsuseclasses = false # inject color codes instead of just css classes
 # PygmentsCodeFences = true # highlight regular ```code```
 
-enableRobotsTXT = true
+enableRobotsTXT = false
 
 disableHugoGeneratorInject = true
 

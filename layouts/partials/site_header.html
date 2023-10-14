@@ -9,7 +9,7 @@
     {{- if eq .Kind "term" }}
     <link rel="alternate" type="application/rss+xml" href="{{ with .OutputFormats.Get "RSS" }}{{ .Permalink }}{{ end }}" title="“{{ title .Data.Singular }}: {{ .Data.Term }} &ndash; {{ .Site.Title }}” RSS"/>
     {{- end }}
-    <link rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}" title="“{{ .Site.Title }}” RSS"/>
+    <link rel="alternate" type="application/rss+xml" href="{{ with .Site.Home.OutputFormats.Get "RSS" }}{{ .Permalink }}{{ end }}" title="“{{ .Site.Title }}” RSS"/>
     <link rel="canonical" href="{{ .Permalink }}" />
     <meta name="title" content="{{ partial "title.html" . }}" />
     <meta name="description" content="{{ $.Param "desc" }}" />

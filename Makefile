@@ -6,15 +6,15 @@ clean:
 	@rm -rf public
 
 build: clean
-	HUGO_MODE=prod hugo -v --cleanDestinationDir
+	HUGO_MODE=prod hugo --logLevel info --cleanDestinationDir
 
 run: clean
-	hugo server -v \
+	hugo server --logLevel info \
 		--buildDrafts \
 		--buildFuture
 
 run_pub: clean
-	sudo $(command -v hugo) server -v \
+	sudo $(command -v hugo) server --logLevel info \
 		--watch \
 		--buildFuture \
 		--buildDrafts \

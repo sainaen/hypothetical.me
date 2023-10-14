@@ -20,4 +20,4 @@ It has two primary goals:
 
 There’s no comments section for now, but you’re welcome to send your feedback
 to [hi@hypothetical.me](mailto:hi@hypothetical.me) or
-tweet at [@sainaen](https://twitter.com/sainaen).
+toot at [@sainaen@mastodon.social](https://mastodon.social/@sainaen).

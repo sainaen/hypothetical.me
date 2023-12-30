@@ -1,0 +1,12 @@
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    {{ $image := .Page.Resources.GetMatch (.Get "src") -}}
+    {{ if gt $image.Width 1660 -}}
+    {{ $preview := $image.Resize "1660x" }}
+    <a href="{{ $image.Permalink }}" title="Open the full-size version"><img src="{{ $preview.Permalink }}" alt="{{ .Get "alt" }}"></a>
+    {{- else -}}
+    <a href="{{ $image.Permalink }}" title="Open the image"><img src="{{ $image.Permalink }}" alt="{{ .Get "alt" }}"></a>
+    {{- end }}
+    {{- if .Get "caption" }}
+    <figcaption>{{- .Get "caption" | markdownify -}}</figcaption>
+    {{- end }}
+</figure>

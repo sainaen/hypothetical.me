@@ -24,7 +24,7 @@ main {
 }
 
 h1, h2, h3,
-p, pre, blockquote,
+p, pre, blockquote, figure,
 ul, ol {
     width: 86%;
     margin-left: auto;
@@ -59,7 +59,7 @@ a:link, a:visited {
     color: inherit;
 }
 
-p, ol, ul {
+p, ol, ul, figcaption {
     font-size: 1.125rem;
     line-height: 1.6;
     font-feature-settings: "onum" 1;
@@ -134,6 +134,26 @@ blockquote footer {
 blockquote footer {
     font-size: 1.125rem;
     text-align: right;
+}
+
+figure {
+    padding: 1em;
+    border: solid 1px #c0c0c0;
+    vertical-align: baseline;
+    margin-bottom: 2rem;
+}
+
+figure.white {
+    background-color: #fff;
+}
+
+figcaption {
+    font-size: 1rem;
+    text-align: center;
+}
+
+img {
+    width: 100%;
 }
 
 .edit-me,
@@ -320,6 +340,9 @@ p.subtitle {
     article hr {
         width: 100%;
         max-width: 720px;
+    }
+    figure {
+        max-width: 830px;
     }
 
     .site-footer::before {

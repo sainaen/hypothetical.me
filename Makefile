@@ -14,7 +14,7 @@ run: clean
 		--buildFuture
 
 run_pub: clean
-	sudo $(command -v hugo) server --logLevel info \
+	sudo $$(command -v hugo) server --logLevel info \
 		--watch \
 		--buildFuture \
 		--buildDrafts \
